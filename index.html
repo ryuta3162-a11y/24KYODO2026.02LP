@@ -216,9 +216,11 @@
         .campaign-header-enhanced h2 { margin: 0; font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: 0.05em; }
         .campaign-header-enhanced .sub-text { display: block; font-size: 1rem; color: #fff; margin-top: 5px; font-weight: 700; opacity: 0.9; }
         
+        /* タブデザイン調整：パディングなしで幅いっぱい */
         .plan-tabs {
             display: flex; justify-content: center; align-items: flex-end; gap: 4px;
-            margin-bottom: 0; position: relative; z-index: 20; padding: 0 10px;
+            margin-bottom: 0; position: relative; z-index: 20; padding: 0; /* パディング削除で幅合わせ */
+            width: 100%; box-sizing: border-box;
         }
         .plan-tab {
             flex: 1; padding: 14px 5px; border-radius: 12px 12px 0 0;
@@ -234,8 +236,8 @@
             box-shadow: 0 -4px 10px rgba(0,0,0,0.1); font-size: 1.1rem;
             padding-bottom: 18px; margin-bottom: -4px;
         }
-        .plan-tab[data-target="0"].active { color: var(--brand); }
-        .plan-tab[data-target="1"].active { color: #3e2723; }
+        .plan-tab[data-target="plan-normal"].active { color: var(--brand); }
+        .plan-tab[data-target="plan-6months"].active { color: #3e2723; }
         
         .recommend-badge {
             position: absolute; top: -25px; right: -10px; background: var(--gold-gradient);
@@ -256,6 +258,7 @@
             background-color: var(--color-white);
             position: relative; z-index: 5; padding-top: 15px;
             transition: all 0.3s ease;
+            width: 100%; box-sizing: border-box; /* 幅を確実に合わせる */
         }
 
         .plan-content-item { display: none; animation: fadeIn 0.5s ease forwards; }
@@ -443,12 +446,13 @@
             cursor: pointer; transition: transform 0.2s; 
         }
 
-        /* 注意事項セクション (以前のデザインを復元、幅だけ調整) */
+        /* 注意事項セクション (幅調整済み) */
         .notice-container-v22 {
             background-color: #fff; border: 5px solid var(--brand); border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); margin: 60px auto 0 auto; padding: 30px 25px;
             text-align: center; position: relative; 
-            width: 95%; max-width: 95%; /* 幅をステップバナーに合わせる */
+            /* 幅をステップバナー(95%)に合わせる */
+            width: 95%; max-width: 95%;
             box-sizing: border-box;
         }
         /* タイトル左右の線装飾 */
@@ -482,25 +486,30 @@
         .bonus-button-link.spotlight { background-color: #fffbe6; border-color: #facc15; }
         .bonus-button-link.spotlight .title { color: #a16207; margin-bottom: 0.25rem; border-color: #a16207; }
 
-        .access-section { background: var(--color-card-bg); margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); transition: all 0.3s ease-out; border: 4px solid var(--brand); width: 100%; box-sizing: border-box; }
+        .access-section { background: #ffffff; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); transition: all 0.3s ease-out; border: 4px solid var(--brand); width: 100%; box-sizing: border-box; }
         .access-section:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2); }
         .access-header { padding: 0; background: #fff; }
         .map-embed-container { position: relative; width: 100%; height: 400px; border-top: 1px solid #eee; }
         .map-embed-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .entrance-photo-container { padding: 25px; background-color: #f8f9fa; border-top: 1px solid #e9ecef; border-bottom: 1px solid #e9ecef; }
+        
+        /* 店舗情報エリアの背景を真っ白に統一 */
+        .entrance-photo-container { padding: 25px; background-color: #ffffff !important; border-top: 1px solid #e9ecef; border-bottom: 1px solid #e9ecef; }
         .entrance-photo-container img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .entrance-photo-container .caption { font-size: 0.9rem; color: #666; margin-top: 15px; font-weight: 700; }
-        .access-details { padding: 25px; text-align: left; }
+        
+        .access-details { padding: 25px; text-align: left; background-color: #ffffff !important; }
         .access-details strong.store-name { display: block; font-size: 1.3rem; margin-bottom: 20px; text-align: center; color: #333; }
         .access-info-item { display: flex; flex-direction: row; align-items: flex-start; gap: 12px; margin-bottom: 15px; }
         .access-info-item .info-icon { flex-shrink: 0; margin-top: 4px; color: #555; }
         .access-info-item span, .access-info-item a, .access-info-item div { font-size: 1rem; color: #333; line-height: 1.7; }
-        .facilities-grid { margin-top: 25px; padding-top: 25px; border-top: 1px solid #e9ecef; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 10px; }
+        
+        .facilities-grid { margin-top: 25px; padding-top: 25px; border-top: 1px solid #e9ecef; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px 10px; background-color: #ffffff !important; }
         .facility-item { text-align: center; }
         .facility-item .facility-icon { width: 48px; height: 48px; margin: 0 auto 8px auto; object-fit: contain; }
         .facility-item strong { display: block; font-size: 0.9rem; font-weight: 700; color: #333; }
         .facility-item p { font-size: 0.8rem; color: #666; margin: 4px 0 0 0; line-height: 1.4; }
-        .map-button-container { padding: 25px; border-top: 1px solid #e9ecef; background-color: #f8f9fa; }
+        
+        .map-button-container { padding: 25px; border-top: 1px solid #e9ecef; background-color: #ffffff !important; }
         .map-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; background-color: var(--brand); color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 14px; box-shadow: 0 6px 15px rgba(194, 22, 50, 0.4); transition: all 0.3s ease; }
         @media (max-width: 640px) { .facilities-grid { grid-template-columns: repeat(2, 1fr); gap: 25px 15px; } }
 
@@ -570,7 +579,10 @@
         <!-- タブ（吹き出し・メタリックデザイン） -->
         <div class="plan-tabs">
             <!-- 通常プラン (先頭) -->
-            <div class="plan-tab active" data-target="plan-normal">通常プラン</div>
+            <div class="plan-tab active" data-target="plan-normal">
+                通常プラン
+                <div class="recommend-badge" style="background:linear-gradient(135deg, #eee, #ddd); color:#555; border:1px solid #ccc; top:-32px; font-size:0.75rem;">在籍縛りなし!</div>
+            </div>
             
             <!-- 6ヶ月継続プラン (右側・おすすめ) -->
             <div class="plan-tab" data-target="plan-6months">
@@ -630,7 +642,7 @@
 
                             <!-- 2月支払目安 -->
                             <div class="mid-list-total-block">
-                                <div class="label"><i class="ph ph-wallet"></i> 2月支払目安</div>
+                                <div class="label"><i class="ph ph-wallet"></i> 2月会費合計</div>
                                 <div><span class="price-large" id="initial-total-price-plan2">0<span class="unit-large">円(税込)</span></span></div>
                                 <div class="sub-desc">(2月日割り会費 + 初期費用5,500円)</div>
                             </div>
@@ -718,7 +730,7 @@
 
                             <!-- 2月支払目安 -->
                             <div class="mid-list-total-block">
-                                <div class="label"><i class="ph ph-wallet"></i> 2月支払目安</div>
+                                <div class="label"><i class="ph ph-wallet"></i> 2月会費合計</div>
                                 <div><span class="price-large" id="initial-total-price-plan1">0<span class="unit-large">円(税込)</span></span></div>
                                 <div class="sub-desc">(2月日割り + 初期費用)</div>
                             </div>
@@ -902,7 +914,7 @@
             </div>
             <div class="access-info-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="info-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <div><strong>受付時間</strong><span>平日 10:00～21:00</span><span>土日祝 12:00～20:00</span><small>※毎週月曜日・木曜日は終日スタッフ不在</small></div>
+                <div style="background: #ffffff !important; padding: 0;"><strong>受付時間</strong><br><span>平日 10:00～21:00</span><br><span>土日祝 12:00～20:00</span><br><small>※毎週月曜日・木曜日は終日スタッフ不在</small></div>
             </div>
             <div class="facilities-grid">
                 <div class="facility-item"><img src="a.jpg" alt="ジムエリア" class="facility-icon" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0e0e0/C21632?text=Gym';"><strong>2Fジムエリア</strong><p>広々空間×充実マシン</p></div>
