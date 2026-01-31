@@ -148,17 +148,20 @@
             text-shadow: 0 1px 0 rgba(255,255,255,0.4);
         }
         
-        .gold-plate-label {
-            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-            background: linear-gradient(to bottom, #d4af37 0%, #f8e71c 30%, #b48811 100%);
-            color: #fff; font-weight: 900; font-size: 0.95rem;
-            padding: 6px 30px; border-radius: 4px; position: relative;
-            margin-top: 10px; box-shadow: 0 4px 10px rgba(180, 136, 17, 0.4);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5); border: 1px solid #fff;
+        /* キャンペーン終了まで（シンプル化） */
+        .simple-text-label {
+            display: inline-block;
+            color: #333;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            text-shadow: none;
         }
-        .gold-plate-label::before, .gold-plate-label::after { content: '◆'; color: #fff; font-size: 0.8rem; }
         
-        .countdown-container { display: flex; gap: 8px; align-items: center; justify-content: center; z-index: 1; margin-top: 15px; }
+        .countdown-container { display: flex; gap: 8px; align-items: center; justify-content: center; z-index: 1; margin-top: 10px; }
         .countdown-circle { 
             width: 60px; height: 60px; 
             background: linear-gradient(135deg, #a01229 0%, #C21632 100%); 
@@ -469,23 +472,40 @@
         .notice-container-v22 .cta-button-video { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(45deg, #ffea00, #ffd600); color: var(--color-dark); font-weight: 900; font-size: 1.1rem; padding: 12px 24px; border-radius: 50px; text-decoration: none; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
         .notice-container-v22 .cta-button-video:hover { transform: scale(1.05); }
 
-        .bonus-section { background: var(--color-card-bg); border-radius: 16px; padding: 2.5rem 1.5rem; margin: 2.5rem auto 0 auto; width: 100%; box-shadow: var(--shadow-soft); text-align: center; border: 2px solid #eee; }
-        .bonus-section .section-main-header h2 { font-size: 1.6rem; font-weight: 900; color: var(--color-dark); line-height: 1.4; }
-        .bonus-section .section-main-header h2 .highlight { font-size: 2rem; color: var(--brand); }
-        .bonus-guide-box { display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.75rem 1.5rem; border-radius: 12px; font-weight: 900; font-size: 1.1rem; line-height: 1.3; box-shadow: 0 6px 15px rgba(194, 22, 50, 0.4); transition: all 0.3s ease; max-width: 90%; margin: 0 auto 2rem auto; text-decoration: none; background: #C21632; color: #fff; border: 3px solid #fff; }
-        .bonus-guide-box:hover { transform: translateY(-3px); }
-        @keyframes bounce-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-        .bonus-guide-box .guide-arrow { font-weight: bold; font-size: 1.1rem; animation: bounce-down 1.2s infinite ease-in-out; }
-        .bonus-section .subsection-title { font-size: 1.1rem; font-weight: 900; color: var(--color-dark); margin-bottom: 1.5rem; margin-top: 2.5rem; border-bottom: 3px solid var(--brand); padding-bottom: 0.75rem; }
-        .bonus-button-link { display: block; text-decoration: none; border-radius: 12px; padding: 1.25rem 1rem; margin-bottom: 1rem; transition: transform 0.3s ease; background-color: #f8f9fa; border: 2px solid #e5e7eb; color: var(--color-dark); box-shadow: var(--shadow-lifted); text-align: center; }
-        .bonus-button-link:hover { transform: translateY(-3px); border-color: var(--brand); }
-        .bonus-button-link .title { display: inline-block; border: 2px solid var(--brand); color: var(--brand); padding: 0.25rem 0.75rem; border-radius: 8px; font-size: 1rem; font-weight: 900; margin-bottom: 0.5rem; background: #fff; }
-        .bonus-button-link .detail { font-size: 1.15rem; font-weight: 700; color: var(--color-dark); line-height: 1.5; }
-        .bonus-button-link .detail .price-spotlight { color: var(--brand); font-weight: 900; font-size: 1.3rem; display: inline-block; }
-        .bonus-button-link .detail .note, .bonus-button-link .detail .duration-note, .bonus-button-link .detail .transfer-note { font-size: 0.75rem; font-weight: 400; color: #555; display: block; margin-top: 0.25rem; line-height: 1.3; }
-        .bonus-button-link.spotlight { background-color: #fffbe6; border-color: #facc15; }
-        .bonus-button-link.spotlight .title { color: #a16207; margin-bottom: 0.25rem; border-color: #a16207; }
-
+        /* 追加特典セクション (注意事項と同じ赤い外枠線) */
+        .bonus-section-red { 
+            display: block; text-decoration: none; /* リンクとして機能させる */
+            background: #fff;
+            border: 5px solid var(--brand); /* 赤い太枠 */
+            border-radius: 12px;
+            padding: 30px 25px;
+            margin: 40px auto 0 auto;
+            width: 95%; max-width: 95%; /* 注意事項と同じ幅 */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .bonus-section-red:hover {
+            transform: scale(1.02);
+        }
+        
+        .bonus-section-red .bonus-title { font-size: 1.8rem; font-weight: 900; color: #333; margin-bottom: 10px; }
+        .bonus-section-red .bonus-desc { font-size: 0.9rem; color: #555; font-weight: 700; margin-bottom: 20px; line-height: 1.6; }
+        
+        /* 大きな「詳細を見る」ボタン */
+        .bonus-btn-large {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 80%; max-width: 400px;
+            background: var(--gold-gradient);
+            color: #3e2723;
+            font-size: 1.2rem; font-weight: 900;
+            padding: 15px; border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(180, 136, 17, 0.3);
+            border: 2px solid #fff;
+        }
+        
+        /* アクセスマップセクション */
         .access-section { background: #ffffff; margin: 30px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1); transition: all 0.3s ease-out; border: 4px solid var(--brand); width: 100%; box-sizing: border-box; }
         .access-section:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2); }
         .access-header { padding: 0; background: #fff; }
@@ -547,7 +567,8 @@
                 <span class="banner-date" id="dynamic-end-date">2月13日(金)まで</span>
                 <span class="banner-slots-badge" id="remaining-slots">先着20名様</span>
             </div>
-            <div class="gold-plate-label">
+            <!-- シンプル化したラベル -->
+            <div class="simple-text-label">
                 ◆ キャンペーン終了まで ◆
             </div>
         </div>
@@ -655,12 +676,12 @@
                         </div>
                     </div>
 
-                    <!-- 条件リスト (スタイル調整) -->
+                    <!-- 条件リスト -->
                     <div class="plan-conditions-list">
                         <ul>
-                            <li><i class="ph ph-check-circle"></i><span>Joyfit Appからのご入会。</span></li>
-                            <li><i class="ph ph-smiley"></i><span>在籍条件の縛り無し。</span></li>
-                            <li style="padding-left: 2.2rem; margin-top: -0.5rem;"><span style="font-size: 0.85rem; color: #d32f2f;">※当月末退会のみ5,500円(税込)が発生致します。</span></li>
+                            <li><i class="ph ph-check-circle"></i><span>Joyfit Appからのご入会</span></li>
+                            <li><i class="ph ph-smiley"></i><span>在籍条件の縛り無し</span></li>
+                            <li style="padding-left: 2.2rem; margin-top: -0.5rem;"><span style="font-size: 0.85rem; color: #d32f2f;">※当月末退会のみ5,500円(税込)が発生致します</span></li>
                             <li><i class="ph ph-gear"></i><span><strong>無料オプション</strong>は入会時、<strong>全て自動契約</strong>となります</span></li>
                         </ul>
                     </div>
@@ -864,31 +885,22 @@
         </a>
     </div>
 
-    <!-- 追加特典セクション -->
-    <section class="bonus-section">
-        <div class="section-main-header">
-            <h2 id="benefits-heading">選べる！<span class="highlight">追加特典</span>一覧</h2>
-        </div>
-        <a href="#benefits-heading" class="bonus-guide-box" onclick="event.preventDefault(); document.getElementById('benefits-heading').scrollIntoView({ behavior: 'smooth' });">
-            <span class="guide-arrow">⇩</span>
-            <span class="guide-text">申請はバナーをタップ</span>
-            <span class="guide-arrow">⇩</span>
-        </a>
-        <h3 class="subsection-title">イチオシ！ (併用可能)</h3>
-        <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-button-link spotlight">
-            <span class="title">友達紹介＆ペア入会</span>
-            <p class="detail">ENJOYポイント<span class="price-spotlight">5,000pt</span><span class="note">(紹介者さま・ご入会者さまそれぞれ)</span></p>
-        </a>
-        <h3 class="subsection-title">その他の特典 (最大2つまで)</h3>
-        <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-button-link">
-            <span class="title">他クラブ移籍</span>
-            <p class="detail">翌月会費 <span class="price-spotlight">0円</span><span class="transfer-note">※移籍証明となる画像が必要です。</span></p>
-        </a>
-        <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-button-link">
-            <span class="title">学校関係者割り</span>
-            <p class="detail">学生 <span class="price-spotlight">7,150円</span>(税込)<br>教職員 <span class="price-spotlight">8,250円</span>(税込)<span class="duration-note">翌月から卒業見込み月まで 適用</span></p>
-        </a>
-    </section>
+    <!-- 追加特典セクション (赤枠統一・シンプルバナー) -->
+    <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-section-red">
+         <!-- タイトル -->
+         <h3 class="bonus-title">
+            お得な<span style="color: var(--brand);">追加特典</span>
+         </h3>
+         <!-- 説明文 -->
+         <p class="bonus-desc">
+            追加特典はこちらからご確認下さい！<br>
+            紹介・移籍・学割など、該当者はさらにお得
+         </p>
+         <!-- ボタン -->
+         <span class="bonus-btn-large">
+            詳細を見る
+         </span>
+    </a>
 
     <!-- アクセスマップセクション -->
     <section class="access-section">
@@ -978,7 +990,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = getRemainingSlots(now);
         if (remainingSlotsEl) {
             if (slots > 0 && now.getTime() < CAMPAIGN_END_DATE.getTime()) {
-                remainingSlotsEl.textContent = `残り20名様`; // 修正依頼に基づき20名固定（ロジックは必要に応じて戻せます）
+                remainingSlotsEl.textContent = `残り20名様`; // 修正依頼に基づき20名固定
             } else {
                 remainingSlotsEl.textContent = `終了しました`;
             }
