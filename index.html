@@ -148,7 +148,6 @@
             text-shadow: 0 1px 0 rgba(255,255,255,0.4);
         }
         
-        /* キャンペーン終了まで（シンプル化） */
         .simple-text-label {
             display: inline-block;
             color: #333;
@@ -161,7 +160,7 @@
             text-shadow: none;
         }
         
-        .countdown-container { display: flex; gap: 8px; align-items: center; justify-content: center; z-index: 1; margin-top: 10px; }
+        .countdown-container { display: flex; gap: 8px; align-items: center; justify-content: center; z-index: 1; margin-top: 15px; }
         .countdown-circle { 
             width: 60px; height: 60px; 
             background: linear-gradient(135deg, #a01229 0%, #C21632 100%); 
@@ -472,7 +471,7 @@
         .notice-container-v22 .cta-button-video { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(45deg, #ffea00, #ffd600); color: var(--color-dark); font-weight: 900; font-size: 1.1rem; padding: 12px 24px; border-radius: 50px; text-decoration: none; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
         .notice-container-v22 .cta-button-video:hover { transform: scale(1.05); }
 
-        /* 追加特典セクション (注意事項と同じ赤い外枠線) */
+        /* 追加特典セクション (赤枠統一・シンプルバナー) */
         .bonus-section-red { 
             display: block; text-decoration: none; /* リンクとして機能させる */
             background: #fff;
@@ -679,8 +678,8 @@
                     <!-- 条件リスト -->
                     <div class="plan-conditions-list">
                         <ul>
-                            <li><i class="ph ph-check-circle"></i><span>Joyfit Appからのご入会</span></li>
-                            <li><i class="ph ph-smiley"></i><span>在籍条件の縛り無し</span></li>
+                            <li><i class="ph ph-check-circle"></i><span>JOYFIT APPからのご入会</span></li>
+                            <li><i class="ph ph-smiley"></i><span>在籍期間の縛りなし</span></li>
                             <li style="padding-left: 2.2rem; margin-top: -0.5rem;"><span style="font-size: 0.85rem; color: #d32f2f;">※当月末退会のみ5,500円(税込)が発生致します</span></li>
                             <li><i class="ph ph-gear"></i><span><strong>無料オプション</strong>は入会時、<strong>全て自動契約</strong>となります</span></li>
                         </ul>
@@ -693,10 +692,10 @@
                             <div class="step-main-content">
                                 <i class="ph ph-device-mobile" style="font-size: 2rem; color: var(--brand);"></i>
                                 <div class="step-info">
-                                    <div class="step-title">アプリでかんたん入会</div>
-                                    <p class="step-desc">Joyfit AppをDLして通常入会</p>
+                                    <div class="step-title">APPでカンタン入会</div>
+                                    <p class="step-desc">JOYFIT APPをDLして入会【最短5分】</p>
                                 </div>
-                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL <i class="ph ph-arrow-right" style="margin-left:4px;"></i></a>
+                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL</a>
                             </div>
                         </div>
                     </div>
@@ -733,6 +732,7 @@
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
                                     <span class="price-value">5,500<span class="unit">円</span></span>
+                                    <!-- 6ヶ月継続プランも条件変更で5,500円に? 元のコードでは5,500円 -->
                                 </div>
                             </div>
 
@@ -778,7 +778,7 @@
                         <ul>
                             <li><i class="ph ph-calendar-check"></i><span><strong>2026年8月末までの在籍</strong>が条件です</span></li>
                             <li><i class="ph ph-warning-circle"></i><span>期間内に退会された場合、解約金として<strong>13,200円</strong>が発生します</span></li>
-                            <li><i class="ph ph-device-mobile-camera"></i><span>Joyfit Appからのご入会 ＋ <strong>下記追加特典から申請</strong>が必須です</span></li>
+                            <li><i class="ph ph-device-mobile-camera"></i><span>JOYFIT APPからのご入会 ＋ <strong>下記追加特典から申請</strong>が必須です</span></li>
                             <li><i class="ph ph-gear"></i><span><strong>無料オプション</strong>は入会時、<strong>全て自動契約</strong>となります</span></li>
                         </ul>
                     </div>
@@ -793,7 +793,7 @@
                                     <div class="step-title">入会前に必ず送信！</div>
                                     <p class="step-desc">6ヶ月継続プランを申請する</p>
                                 </div>
-                                <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-gold-flat">申請する <i class="ph ph-arrow-right" style="margin-left:4px;"></i></a>
+                                <a href="https://24kyodo-special-plan.vercel.app/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-gold-flat">申請する</a>
                             </div>
                         </div>
                         
@@ -803,10 +803,10 @@
                             <div class="step-main-content">
                                 <i class="ph ph-device-mobile" style="font-size: 2rem; color: var(--brand);"></i>
                                 <div class="step-info">
-                                    <div class="step-title">申請後にアプリで通常入会</div>
-                                    <p class="step-desc">Joyfit Appをダウンロード</p>
+                                    <div class="step-title">APPでカンタン入会</div>
+                                    <p class="step-desc">JOYFIT APPをDLして入会【最短5分】</p>
                                 </div>
-                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL <i class="ph ph-arrow-right" style="margin-left:4px;"></i></a>
+                                <a href="https://joyfit.jp/kyodo/app_join/" target="_blank" rel="noopener noreferrer" class="step-action-btn btn-red-flat">アプリDL</a>
                             </div>
                         </div>
                     </div>
@@ -875,7 +875,7 @@
         <div class="notice-body-v22">
             オプションは入会時に<strong>自動契約</strong>となります<br />
             不要な場合<strong>2月末迄</strong>に解約をお願いいたします<br /><br />
-            入会後<strong>[JOYFITAPP]</strong>から解約が可能です<br />
+            入会後<strong>[JOYFIT APP]</strong>から解約が可能です<br />
             解約後も月末迄サービスをご利用頂けます
         </div>
         <span class="notice-warning-v22">※解約忘れによる返金は出来ません</span>
@@ -886,7 +886,7 @@
     </div>
 
     <!-- 追加特典セクション (赤枠統一・シンプルバナー) -->
-    <a href="https://24kyodo-special2.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-section-red">
+    <a href="https://24kyodo-special-plan.vercel.app/" target="_blank" rel="noopener noreferrer" class="bonus-section-red">
          <!-- タイトル -->
          <h3 class="bonus-title">
             お得な<span style="color: var(--brand);">追加特典</span>
@@ -971,18 +971,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // 残り人数
     const remainingSlotsEl = document.getElementById('remaining-slots');
     function getRemainingSlots(currentDate) {
-        const fixedEndDate = new Date(CAMPAIGN_END_DATE.getFullYear(), CAMPAIGN_END_DATE.getMonth(), CAMPAIGN_END_DATE.getDate());
+        // キャンペーン開始日（2月1日）
+        const startDate = new Date(2026, 1, 1);
         const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
         
-        if (today.getTime() > fixedEndDate.getTime()) { return 0; }
+        // 開始前なら20名
+        if (today < startDate) return 20;
+
+        // 経過日数
+        const diffTime = today.getTime() - startDate.getTime();
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
         
-        const diffTime = fixedEndDate.getTime() - today.getTime();
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        // 1日1名減る (20 - 経過日数)
+        let slots = 20 - diffDays;
         
-        let slots = 1;
-        if (diffDays >= 7) { slots = 6; }
-        else if (diffDays <= 0) { slots = 1; }
-        else { slots = diffDays; }
+        // 最低1名は残す（あるいは0で終了表示）
+        if (slots < 1) slots = 0;
+        
         return slots;
     }
     
@@ -990,7 +995,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = getRemainingSlots(now);
         if (remainingSlotsEl) {
             if (slots > 0 && now.getTime() < CAMPAIGN_END_DATE.getTime()) {
-                remainingSlotsEl.textContent = `残り20名様`; // 修正依頼に基づき20名固定
+                remainingSlotsEl.textContent = `残り${slots}名様`;
             } else {
                 remainingSlotsEl.textContent = `終了しました`;
             }
@@ -998,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     updateRemainingSlots();
 
-    // カウントダウン
+    // カウントダウン (setIntervalで動かす)
     let countdownInterval;
     function createCountdownHTML(days, hours, minutes, seconds) {
         return `
@@ -1010,8 +1015,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateAllCountdowns() {
-        const distance = CAMPAIGN_END_DATE.getTime() - now.getTime();
+        const nowTick = new Date(); // リアルタイム
+        const distance = CAMPAIGN_END_DATE.getTime() - nowTick.getTime();
         const bannerCountdownContainer = document.getElementById('banner-countdown');
+        
         if (distance > 0) {
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1019,11 +1026,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = createCountdownHTML(days, hours, minutes, seconds);
         } else {
-            clearInterval(countdownInterval);
+            if (countdownInterval) clearInterval(countdownInterval);
             if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = "<p style='font-size: 1rem; font-weight: 700; color: var(--brand);'>キャンペーンは終了しました</p>";
         }
     }
+    
+    // 1秒ごとに更新
     updateAllCountdowns();
+    countdownInterval = setInterval(updateAllCountdowns, 1000);
 
     // --- タブ切り替え（フェード式） ---
     const tabs = document.querySelectorAll('.plan-tab');
@@ -1071,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const createCardHTML = (option) => `
             <div class="option-card-3d">
-                <div class="card-badge ${isPaid ? 'paid' : 'free'}">${isPaid ? '有料オプション' : '2月分無料'}</div>
+                <div class="card-badge ${isPaid ? 'paid' : 'free'}">${isPaid ? '有料オプション' : '1・2月無料'}</div>
                 <div class="card-icon-area">
                     <img src="./${option.icon_img}" alt="${option.name}" class="card-icon" onerror="this.onerror=null; this.src='https://placehold.co/150x150/transparent/cccccc?text=Option';">
                 </div>
