@@ -1081,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const createCardHTML = (option) => `
             <div class="option-card-3d">
-                <div class="card-badge ${isPaid ? 'paid' : 'free'}">${isPaid ? '有料オプション' : '1・2月無料'}</div>
+                <div class="card-badge ${isPaid ? 'paid' : 'free'}">${isPaid ? '有料オプション' : '無料オプション'}</div>
                 <div class="card-icon-area">
                     <img src="./${option.icon_img}" alt="${option.name}" class="card-icon" onerror="this.onerror=null; this.src='https://placehold.co/150x150/transparent/cccccc?text=Option';">
                 </div>
