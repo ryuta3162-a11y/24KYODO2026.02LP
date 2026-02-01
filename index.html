@@ -306,10 +306,19 @@
         .monthly-fee .label { font-size: 0.85rem; font-weight: 700; color: #666; margin-bottom: 0.5rem; }
         .monthly-fee .price-large { font-family: var(--font-base); font-size: 1.4rem; font-weight: 900; color: var(--color-dark); }
         
-        .plan-conditions-list { margin-top: 1.5rem; margin-bottom: 1.5rem; background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 1.5rem; text-align: left; }
-        .plan-conditions-list ul { list-style: none; padding-left: 0; margin: 0; }
-        .plan-conditions-list li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.8rem; /* 文字サイズ調整 */ font-weight: 700; color: #333; line-height: 1.7; margin-bottom: 0.75rem; }
-        .plan-conditions-list li i { font-size: 1.2rem; color: var(--brand); margin-top: 2px; flex-shrink: 0; }
+        /* 条件リスト（デジタルカード風に統合・左詰め・チェックアイコン） */
+        .condition-list-content {
+            padding: 15px 10px;
+        }
+        .condition-item {
+            display: flex; 
+            align-items: flex-start; /* 上揃え */
+            gap: 10px;
+            margin-bottom: 12px; 
+            text-align: left; /* 左詰め */
+            font-size: 0.85rem; font-weight: 700; color: #333;
+        }
+        .condition-item:last-child { margin-bottom: 0; }
         
         /* --- デジタル・ガジェット風ステップバナー (ゆとり調整) --- */
         .digital-step-card {
@@ -448,7 +457,7 @@
             cursor: pointer; transition: transform 0.2s; 
         }
 
-        /* 注意事項セクション (幅調整済み) */
+        /* 注意事項セクション (以前のデザインを復元、幅だけ調整) */
         .notice-container-v22 {
             background-color: #fff; border: 5px solid var(--brand); border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); margin: 60px auto 0 auto; padding: 30px 25px;
@@ -675,14 +684,24 @@
                         </div>
                     </div>
 
-                    <!-- 条件リスト -->
-                    <div class="plan-conditions-list">
-                        <ul>
-                            <li><i class="ph ph-check-circle"></i><span>JOYFIT APPからのご入会</span></li>
-                            <li><i class="ph ph-smiley"></i><span>在籍期間の縛りなし</span></li>
-                            <li style="padding-left: 2.2rem; margin-top: -0.5rem;"><span style="font-size: 0.85rem; color: #d32f2f;">※当月末退会のみ5,500円(税込)が発生致します</span></li>
-                            <li><i class="ph ph-gear"></i><span><strong>無料オプション</strong>は入会時、<strong>全て自動契約</strong>となります</span></li>
-                        </ul>
+                    <!-- 条件リスト (デジタルカード風に変更) -->
+                    <div class="digital-step-card condition-card" style="margin: 30px auto; border-color: #ccc;">
+                        <div class="step-badge red">キャンペーン注意事項</div>
+                        <div class="condition-list-content" style="padding: 10px 0;">
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i>
+                                <span>JOYFIT APPからのご入会<br><span style="font-size:0.85rem; font-weight:normal;">(クレジットカード決済のみ対応)</span></span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>在籍期間の縛りなし</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>当月末退会のみ解約金5,500円(税込)が発生致します</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>無料オプションは入会時、全て自動契約となります</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="how-to-join-container">
@@ -732,7 +751,6 @@
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
                                     <span class="price-value">5,500<span class="unit">円</span></span>
-                                    <!-- 6ヶ月継続プランも条件変更で5,500円に? 元のコードでは5,500円 -->
                                 </div>
                             </div>
 
@@ -773,14 +791,23 @@
                         </div>
                     </div>
 
-                    <!-- 条件リスト -->
-                    <div class="plan-conditions-list">
-                        <ul>
-                            <li><i class="ph ph-calendar-check"></i><span><strong>2026年8月末までの在籍</strong>が条件です</span></li>
-                            <li><i class="ph ph-warning-circle"></i><span>期間内に退会された場合、解約金として<strong>13,200円</strong>が発生します</span></li>
-                            <li><i class="ph ph-device-mobile-camera"></i><span>JOYFIT APPからのご入会 ＋ <strong>下記追加特典から申請</strong>が必須です</span></li>
-                            <li><i class="ph ph-gear"></i><span><strong>無料オプション</strong>は入会時、<strong>全て自動契約</strong>となります</span></li>
-                        </ul>
+                    <!-- 条件リスト (デジタルカード風に変更) -->
+                    <div class="digital-step-card condition-card" style="margin: 30px auto; border-color: #ccc;">
+                        <div class="step-badge red">キャンペーン注意事項</div>
+                        <div class="condition-list-content" style="padding: 10px 0;">
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>2026年8月末までの在籍が条件です</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>期間内に退会された場合、解約金として13,200円が発生します</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 12px; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>JOYFIT APPからのご入会 ＋ 下記追加特典から申請が必須です</span>
+                            </div>
+                            <div class="condition-item" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 0; justify-content: flex-start;">
+                                <i class="ph ph-check" style="color: var(--brand); font-weight: bold; font-size: 1.2rem;"></i><span>無料オプションは入会時、全て自動契約となります</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="how-to-join-container">
@@ -971,23 +998,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 残り人数
     const remainingSlotsEl = document.getElementById('remaining-slots');
     function getRemainingSlots(currentDate) {
-        // キャンペーン開始日（2月1日）
-        const startDate = new Date(2026, 1, 1);
+        const fixedEndDate = new Date(CAMPAIGN_END_DATE.getFullYear(), CAMPAIGN_END_DATE.getMonth(), CAMPAIGN_END_DATE.getDate());
         const today = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
         
-        // 開始前なら20名
-        if (today < startDate) return 20;
-
-        // 経過日数
-        const diffTime = today.getTime() - startDate.getTime();
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        if (today.getTime() > fixedEndDate.getTime()) { return 0; }
         
-        // 1日1名減る (20 - 経過日数)
-        let slots = 20 - diffDays;
+        const diffTime = fixedEndDate.getTime() - today.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
         
-        // 最低1名は残す（あるいは0で終了表示）
-        if (slots < 1) slots = 0;
-        
+        let slots = 1;
+        if (diffDays >= 7) { slots = 6; }
+        else if (diffDays <= 0) { slots = 1; }
+        else { slots = diffDays; }
         return slots;
     }
     
@@ -995,7 +1017,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = getRemainingSlots(now);
         if (remainingSlotsEl) {
             if (slots > 0 && now.getTime() < CAMPAIGN_END_DATE.getTime()) {
-                remainingSlotsEl.textContent = `残り${slots}名様`;
+                remainingSlotsEl.textContent = `残り20名様`; // 修正依頼に基づき20名固定（ロジックは必要に応じて戻せます）
             } else {
                 remainingSlotsEl.textContent = `終了しました`;
             }
@@ -1003,7 +1025,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     updateRemainingSlots();
 
-    // カウントダウン (setIntervalで動かす)
+    // カウントダウン
     let countdownInterval;
     function createCountdownHTML(days, hours, minutes, seconds) {
         return `
@@ -1015,10 +1037,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function updateAllCountdowns() {
-        const nowTick = new Date(); // リアルタイム
-        const distance = CAMPAIGN_END_DATE.getTime() - nowTick.getTime();
+        const distance = CAMPAIGN_END_DATE.getTime() - new Date().getTime(); // リアルタイム更新
         const bannerCountdownContainer = document.getElementById('banner-countdown');
-        
         if (distance > 0) {
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -1026,7 +1046,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = createCountdownHTML(days, hours, minutes, seconds);
         } else {
-            if (countdownInterval) clearInterval(countdownInterval);
+            clearInterval(countdownInterval);
             if (bannerCountdownContainer) bannerCountdownContainer.innerHTML = "<p style='font-size: 1rem; font-weight: 700; color: var(--brand);'>キャンペーンは終了しました</p>";
         }
     }
