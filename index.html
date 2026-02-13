@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JOYFIT24経堂 2月限定キャンペーン</title>
+    <title>JOYFIT24経堂 2月後半限定キャンペーン</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- フォントをNoto Sans JPに統一 -->
@@ -104,7 +104,8 @@
         #limited-time-banner {
             width: 100%;
             background: #ffffff;
-            border: 4px solid var(--gold-main);
+            /* 外枠を赤に変更・サイズ調整 */
+            border: 5px solid var(--brand);
             position: relative;
             border-radius: 20px;
             padding: 40px 15px 30px 15px;
@@ -114,7 +115,7 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
-            box-shadow: 0 10px 30px rgba(180, 136, 17, 0.2);
+            box-shadow: 0 10px 30px rgba(194, 22, 50, 0.2); /* 影も赤系に調整 */
             margin-top: 30px;
             overflow: hidden; 
             background-image: linear-gradient(to bottom, #fff, #fffdf5);
@@ -126,7 +127,7 @@
             font-size: 1.6rem;
             font-weight: 900;
             padding: 12px 40px;
-            margin-bottom: 15px;
+            margin-bottom: 5px; /* 下のマージンを少し減らす */
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(194, 22, 50, 0.3);
             display: inline-block;
@@ -348,8 +349,9 @@
         /* プラン表示エリア */
         .plan-container-wrapper {
             overflow: hidden; border-radius: 0 0 16px 16px;
-            border: 3px solid var(--gold-main); border-top: none;
-            box-shadow: 0 15px 40px rgba(180, 136, 17, 0.1);
+            /* 外枠を赤に変更 */
+            border: 3px solid var(--brand); border-top: none;
+            box-shadow: 0 15px 40px rgba(194, 22, 50, 0.1);
             background-color: var(--color-white);
             position: relative; z-index: 5; padding-top: 15px;
             transition: all 0.3s ease;
@@ -507,7 +509,8 @@
         .options-group-section {
             background: linear-gradient(145deg, #C21632 0%, #990020 100%); /* 元の赤背景 */
             position: relative; z-index: 1; color: var(--color-white); border-radius: 16px;
-            box-shadow: 0 0 0 4px var(--gold-main), var(--shadow-soft);
+            /* 外枠を赤に変更（背景と同化するため白のボーダーを挟むか、あるいはより濃い赤にするかですが、ここではブランドカラーで統一） */
+            box-shadow: 0 0 0 4px var(--brand), var(--shadow-soft);
             padding: 40px 0; margin: 40px auto; width: 100%; overflow: hidden;
         }
         .options-carousel-section .text-box { margin: 0 auto; max-width: 90%; }
@@ -660,7 +663,12 @@
     <div id="limited-time-banner">
         <!-- シンプルなタイトルボックス (C21632) -->
         <div class="simple-banner-title">
-            2月限定キャンペーン
+            2月後半限定キャンペーン
+        </div>
+        
+        <!-- 追加: 事務手数料お得バナー -->
+        <div class="commission-free-badge" style="background: #fff0f0; border: 2px solid var(--brand); color: var(--brand); font-weight: 900; padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 15px; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(194, 22, 50, 0.15);">
+            事務手数料 3,300円分お得に！
         </div>
 
         <div class="banner-left-content">
@@ -692,7 +700,7 @@
         <!-- ヘッダー（赤背景・白文字・シンプル） -->
         <div class="campaign-header-enhanced">
             <div class="campaign-header-inner">
-                <h2>2月限定キャンペーン</h2>
+                <h2>2月後半限定キャンペーン</h2>
                 <span class="sub-text">選べる2つのプラン</span>
             </div>
         </div>
@@ -740,11 +748,12 @@
                             <div class="price-item">
                                 <div class="label-group">
                                     <span class="number-circle" style="background-color: #555;">2</span>
-                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金+事務手数料)</span></div>
+                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金のみ)</span></div>
                                 </div>
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
-                                    <span class="price-value">2,200<span class="unit">円</span></span>
+                                    <span class="price-value" style="font-size: 1.1rem;">入会金 2,200円</span>
+                                    <span class="free-commission-note" style="display: block; background: var(--brand); color: #fff; font-size: 0.75rem; font-weight: 900; padding: 3px 6px; border-radius: 4px; margin-top: 5px;">事務手数料3,300円は無料</span>
                                 </div>
                             </div>
 
@@ -838,11 +847,12 @@
                             <div class="price-item">
                                 <div class="label-group">
                                     <span class="number-circle" style="background-color: #555;">2</span>
-                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金+事務手数料)</span></div>
+                                    <div class="label">初期費用<span class="note" style="color:#555; font-weight:400;">(入会金のみ)</span></div>
                                 </div>
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
-                                    <span class="price-value">2,200<span class="unit">円</span></span>
+                                    <span class="price-value" style="font-size: 1.1rem;">入会金 2,200円</span>
+                                    <span class="free-commission-note" style="display: block; background: var(--brand); color: #fff; font-size: 0.75rem; font-weight: 900; padding: 3px 6px; border-radius: 4px; margin-top: 5px;">事務手数料3,300円は無料</span>
                                 </div>
                             </div>
 
@@ -863,7 +873,7 @@
                             <div class="mid-list-total-block">
                                 <div class="label"><i class="ph ph-wallet"></i> 2月会費合計</div>
                                 <div><span class="price-large" id="initial-total-price-plan1">0<span class="unit-large">円(税込)</span></span></div>
-                                <div class="sub-desc">(2月日割り + 初期費用)</div>
+                                <div class="sub-desc">(2月日割り + 初期費用2,200円)</div>
                             </div>
 
                             <!-- キャンペーン特別価格 (装飾強化版) -->
