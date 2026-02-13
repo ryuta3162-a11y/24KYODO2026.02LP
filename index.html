@@ -26,7 +26,9 @@
             --color-dark: #2c3e50;
             --color-text: #333333;
             --color-white: #ffffff;
-            --bg-body: #f2f2f2;
+            
+            /* 背景色の変更: フィットネス感のあるスタイリッシュなメッシュパターン */
+            --bg-body: #f8f9fa;
 
             --font-base: 'Noto Sans JP', sans-serif;
             --font-accent: 'Noto Sans JP', sans-serif;
@@ -51,7 +53,15 @@
             overflow-x: hidden; 
             color: var(--color-text);
             min-height: 100vh;
+            
+            /* フィットネスブランド感を演出する背景 */
             background-color: var(--bg-body);
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+                repeating-linear-gradient(45deg, #dcdcdc 0, #dcdcdc 1px, transparent 0, transparent 10px);
+            background-size: 100% 100%, 20px 20px;
+            background-attachment: fixed;
+            
             transition: padding-bottom 0.4s ease;
         }
         body.banner-hidden { padding-bottom: 40px; }
@@ -80,10 +90,6 @@
         img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
         h2 { font-weight: 700; color: #333; }
 
-        /* アニメーション */
-        @keyframes shine-effect {
-            0% { left: -100%; } 20% { left: 200%; } 100% { left: 200%; }
-        }
         @keyframes pulse-gentle {
             0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }
         }
@@ -110,8 +116,8 @@
             gap: 12px;
             box-shadow: 0 10px 30px rgba(180, 136, 17, 0.2);
             margin-top: 30px;
-            overflow: visible;
-            background-image: linear-gradient(#fff, #fffdf5);
+            overflow: hidden; 
+            background-image: linear-gradient(to bottom, #fff, #fffdf5);
         }
 
         .simple-banner-title {
@@ -179,29 +185,116 @@
              .countdown-number { font-size: 1.4rem; }
         }
 
-        /* --- Special Highlight --- */
+        /* --- Special Highlight (装飾強化版・縮小調整) --- */
         .hero-special-area { width: 100%; margin-top: 25px; box-sizing: border-box; }
+        
         .special-highlight {
-            border: none;
-            background: radial-gradient(ellipse at center, #FFD700 0%, #FDB931 40%, #B48811 100%);
-            border: 3px solid #fff; outline: 2px solid var(--gold-dark);
-            border-radius: 12px; padding: 2.5rem 1rem 1.5rem 1rem;
-            position: relative; text-align: center; margin: 0 auto; width: 95%;
-            box-shadow: 0 10px 25px rgba(180, 136, 17, 0.4); overflow: visible;
+            position: relative;
+            /* 幅を95%から90%に縮小して左右の余裕を確保 */
+            width: 90%;
+            margin: 25px auto;
+            /* パディングを調整: 上部を少し詰める（ラベル削除分） */
+            padding: 2rem 0.5rem 1.5rem 0.5rem;
+            border-radius: 20px;
+            /* プレミアムゴールドグラデーション */
+            background: linear-gradient(135deg, #D4AF37 0%, #FDB931 30%, #FFD700 50%, #FDB931 70%, #D4AF37 100%);
+            /* 白枠と金枠の二重ボーダー */
+            border: 3px solid #ffffff;
+            box-shadow: 0 10px 25px rgba(180, 136, 17, 0.4), 0 0 0 2px #B48811;
+            text-align: center;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
         }
-        .special-highlight .ribbon-label {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(to bottom, #333, #000); color: #FFD700;
-            font-size: 0.9rem; font-weight: 900; padding: 6px 25px;
-            border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            z-index: 5; white-space: nowrap; border: 1px solid #FFD700; letter-spacing: 0.05em;
+        
+        /* 光沢アニメーション (全体を薙ぎ払う光) */
+        .special-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+            transform: skewX(-25deg);
+            animation: shine-sweep 3.5s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 1;
         }
-        .special-line-1 { font-size: 1.6rem; font-weight: 900; color: #3e2723; text-shadow: 0 1px 0 rgba(255,255,255,0.4); margin: 0.2rem 0; line-height: 1.2; }
-        .special-line-2 { font-size: 0.95rem; font-weight: 700; color: #fff; background: #800000; padding: 3px 15px; border-radius: 20px; margin: 0.5rem auto; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        .special-line-3 { font-size: 1rem; color: #3e2723; text-decoration: line-through; display: block; margin-bottom: 0; opacity: 0.8; font-weight: 700; }
-        .special-line-4 { font-size: 3rem; line-height: 1; font-weight: 900; font-family: var(--font-accent); color: #C21632; text-shadow: 1px 1px 0 #fff, 0 0 10px rgba(255,255,255,0.5); margin-bottom: 0.25rem; }
-        .special-line-4 .unit { font-size: 1.2rem; color: #3e2723; font-weight: 900; margin-left: 2px; text-shadow: none; }
-        @media (max-width: 480px) { .special-line-1 { font-size: 1.4rem; } .special-line-4 { font-size: 2.6rem; } }
+
+        @keyframes shine-sweep {
+            0% { left: -150%; opacity: 0; }
+            30% { opacity: 1; }
+            60% { left: 150%; opacity: 0; }
+            100% { left: 150%; opacity: 0; }
+        }
+
+        /* タイトル */
+        .special-line-1 {
+            font-size: 1.5rem; /* サイズダウン */
+            font-weight: 900;
+            color: #4a3b2a; /* 濃いブラウン */
+            text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+            margin: 0.2rem 0 0.2rem 0; /* マージン調整 */
+            line-height: 1.2;
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 期間表示 (エンジ色ピル型) */
+        .special-line-2 {
+            font-size: 0.9rem; /* サイズダウン */
+            font-weight: 700;
+            color: #fff;
+            background: #800000;
+            padding: 5px 18px;
+            border-radius: 50px;
+            margin: 0.4rem auto;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 通常価格 */
+        .special-line-3 {
+            font-size: 0.9rem; /* サイズダウン */
+            color: #4a3b2a;
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 0;
+            opacity: 0.9;
+            font-weight: 700;
+            position: relative; 
+            z-index: 2;
+        }
+
+        /* 価格表示 (赤字に白縁取り) */
+        .special-line-4 {
+            font-size: 3rem; /* サイズダウン */
+            line-height: 1;
+            font-weight: 900;
+            font-family: var(--font-accent);
+            color: #C21632;
+            /* 強めの白フチ文字 */
+            text-shadow: 2px 2px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+            margin-bottom: 0.25rem;
+            position: relative; 
+            z-index: 2;
+        }
+        .special-line-4 .unit {
+            font-size: 1.2rem;
+            color: #4a3b2a;
+            font-weight: 900;
+            margin-left: 2px;
+            text-shadow: none;
+        }
+        
+        @media (max-width: 480px) { 
+            .special-highlight { width: 92%; } /* スマホでも左右に余白 */
+            .special-line-1 { font-size: 1.3rem; } 
+            .special-line-4 { font-size: 2.5rem; } 
+        }
 
         /* --- プラン選択セクション（統一・フェード切り替え） --- */
         .plan-selection-section {
@@ -572,8 +665,8 @@
 
         <div class="banner-left-content">
             <div class="banner-text-row-top">
-                <span class="banner-date" id="dynamic-end-date">2月13日(金)まで</span>
-                <span class="banner-slots-badge" id="remaining-slots">先着20名様</span>
+                <span class="banner-date" id="dynamic-end-date">2月28日(土)まで</span>
+                <span class="banner-slots-badge" id="remaining-slots">残り--名様</span>
             </div>
             <!-- シンプル化したラベル -->
             <div class="simple-text-label">
@@ -582,10 +675,9 @@
         </div>
         <div id="banner-countdown" class="countdown-container"></div>
 
-        <!-- ファーストビュー: スペシャルプライス・ブロック (純金プレート風) -->
+        <!-- ファーストビュー: スペシャルプライス・ブロック (装飾強化版) -->
         <div class="hero-special-area">
             <div class="special-highlight">
-                <span class="ribbon-label">Special Price</span>
                 <div class="special-line-1">6ヶ月継続プラン</div>
                 <div class="special-line-2">2026年3月〜8月分(6ヶ月間)</div>
                 <div class="special-line-3">通常 9,350円</div>
@@ -652,7 +744,7 @@
                                 </div>
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
-                                    <span class="price-value">5,500<span class="unit">円</span></span>
+                                    <span class="price-value">2,200<span class="unit">円</span></span>
                                 </div>
                             </div>
 
@@ -673,7 +765,7 @@
                             <div class="mid-list-total-block">
                                 <div class="label"><i class="ph ph-wallet"></i> 2月会費合計</div>
                                 <div><span class="price-large" id="initial-total-price-plan2">0<span class="unit-large">円(税込)</span></span></div>
-                                <div class="sub-desc">(2月日割り会費 + 初期費用5,500円)</div>
+                                <div class="sub-desc">(2月日割り会費 + 初期費用2,200円)</div>
                             </div>
                         </div>
                         
@@ -750,7 +842,7 @@
                                 </div>
                                 <div class="divider-dot"></div>
                                 <div class="price-display-center">
-                                    <span class="price-value">5,500<span class="unit">円</span></span>
+                                    <span class="price-value">2,200<span class="unit">円</span></span>
                                 </div>
                             </div>
 
@@ -774,9 +866,8 @@
                                 <div class="sub-desc">(2月日割り + 初期費用)</div>
                             </div>
 
-                            <!-- キャンペーン特別価格 (純金プレート) -->
+                            <!-- キャンペーン特別価格 (装飾強化版) -->
                             <div class="special-highlight">
-                                <span class="ribbon-label">Special Price</span>
                                 <div class="special-line-1">6ヶ月継続プラン</div>
                                 <div class="special-line-2">2026年3月〜8月分(6ヶ月間)</div>
                                 <div class="special-line-3">通常 9,350円</div>
@@ -992,10 +1083,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 現在の日時を取得
     const now = new Date(); 
     
-    // キャンペーン期間設定 (2026年2月13日(金)まで)
-    const CAMPAIGN_END_DATE = new Date(2026, 1, 13, 23, 59, 59, 999);
+    // キャンペーン期間設定 (2026年2月28日(土)まで)
+    const CAMPAIGN_END_DATE = new Date(2026, 1, 28, 23, 59, 59, 999);
     
-    // 残り人数
+    // 残り人数 (先着10名 -> 最終日1名)
     const remainingSlotsEl = document.getElementById('remaining-slots');
     function getRemainingSlots(currentDate) {
         const fixedEndDate = new Date(CAMPAIGN_END_DATE.getFullYear(), CAMPAIGN_END_DATE.getMonth(), CAMPAIGN_END_DATE.getDate());
@@ -1003,13 +1094,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (today.getTime() > fixedEndDate.getTime()) { return 0; }
         
+        // 残り日数を計算
         const diffTime = fixedEndDate.getTime() - today.getTime();
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
         
-        let slots = 1;
-        if (diffDays >= 7) { slots = 6; }
-        else if (diffDays <= 0) { slots = 1; }
-        else { slots = diffDays; }
+        // ロジック:
+        // 最終日(diffDays=0) -> 1名
+        // それ以外 -> 残り日数に応じて増えるが、最大10名でキャップ
+        // 例: 残り9日 -> 10名, 残り1日 -> 2名, 残り0日 -> 1名
+        // シンプルに (残り日数 + 1) 名とし、最大10名とする
+        
+        let slots = diffDays + 1;
+        if (slots > 10) { slots = 10; }
+        
         return slots;
     }
     
@@ -1017,7 +1114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const slots = getRemainingSlots(now);
         if (remainingSlotsEl) {
             if (slots > 0 && now.getTime() < CAMPAIGN_END_DATE.getTime()) {
-                remainingSlotsEl.textContent = `残り20名様`; // 修正依頼に基づき20名固定（ロジックは必要に応じて戻せます）
+                remainingSlotsEl.textContent = `残り${slots}名様`; 
             } else {
                 remainingSlotsEl.textContent = `終了しました`;
             }
@@ -1160,7 +1257,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 日割り計算ロジック（修正版） ---
     function calculatePrice(elementId, totalElementId) {
         const MONTHLY_FEE = 9350; 
-        const INITIAL_FEE = 5500; 
+        const INITIAL_FEE = 2200; // 入会金2,200円のみに変更
         const priceEl = document.getElementById(elementId);
         const totalInitialPriceEl = document.getElementById(totalElementId);
         
